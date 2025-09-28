@@ -71,7 +71,7 @@ const AboutContactPage = () => {
           <div style={teamContainerStyle}>
             <div style={teamMemberStyle}>
               <div style={avatarStyle}>👨‍💼</div>
-              <h4 style={nameStyle}>Kimutai Gibson</h4>
+              <h4 style={nameStyle}>Gibson</h4>
               <p style={roleStyle}>Co-Founder</p>
               <p style={bioStyle}>Visionary and strategist behind Zoka Digital.</p>
               <a href="https://wa.me/254721635810" target="_blank" rel="noopener noreferrer">
@@ -81,7 +81,7 @@ const AboutContactPage = () => {
             
             <div style={teamMemberStyle}>
               <div style={avatarStyle}>👨‍💼</div>
-              <h4 style={nameStyle}>Festus Bett</h4>
+              <h4 style={nameStyle}>Javen Festus</h4>
               <p style={roleStyle}>Co-Founder</p>
               <p style={bioStyle}>Tech enthusiast and growth partner at Zoka Digital.</p>
               <a href="https://wa.me/254704506403" target="_blank" rel="noopener noreferrer">
