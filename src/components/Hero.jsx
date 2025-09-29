@@ -1,74 +1,360 @@
 import { Link } from 'react-router-dom';
+import { useEffect, useState, useRef } from 'react';
 
 const Hero = () => {
+  const [visible, setVisible] = useState(false);
+  const [counters, setCounters] = useState({
+    entrepreneurs: 0,
+    roadmaps: 0,
+    successRate: 0
+  });
+  const sectionRef = useRef(null);
+
+  // Animation on mount
+  useEffect(() => {
+    const timer = setTimeout(() => setVisible(true), 100);
+    return () => clearTimeout(timer);
+  }, []);
+
+  // Counter animation
+  useEffect(() => {
+    if (!visible) return;
+    
+    const duration = 2000; // 2 seconds
+    const steps = 30;
+    const interval = duration / steps;
+    
+    const entrepreneursTarget = 10000;
+    const roadmapsTarget = 500;
+    const successRateTarget = 98;
+    
+    let step = 0;
+    const counterInterval = setInterval(() => {
+      step++;
+      const progress = step / steps;
+      
+      setCounters({
+        entrepreneurs: Math.floor(entrepreneursTarget * progress),
+        roadmaps: Math.floor(roadmapsTarget * progress),
+        successRate: Math.floor(successRateTarget * progress)
+      });
+      
+      if (step >= steps) {
+        clearInterval(counterInterval);
+        setCounters({
+          entrepreneurs: entrepreneursTarget,
+          roadmaps: roadmapsTarget,
+          successRate: successRateTarget
+        });
+      }
+    }, interval);
+    
+    return () => clearInterval(counterInterval);
+  }, [visible]);
+
+  // Floating animation for elements
+  const FloatingElement = ({ children, delay = 0, duration = 3 }) => (
+    <div 
+      style={{
+        animation: `float ${duration}s ease-in-out infinite`,
+        animationDelay: `${delay}s`,
+        display: 'inline-block'
+      }}
+    >
+      {children}
+    </div>
+  );
+
+  // Particle background
+  const Particles = () => {
+    const particles = Array.from({ length: 20 });
+    
+    return (
+      <div style={{
+        position: 'absolute',
+        top: 0,
+        left: 0,
+        width: '100%',
+        height: '100%',
+        overflow: 'hidden',
+        zIndex: 0
+      }}>
+        {particles.map((_, i) => (
+          <div
+            key={i}
+            style={{
+              position: 'absolute',
+              width: `${Math.random() * 10 + 2}px`,
+              height: `${Math.random() * 10 + 2}px`,
+              backgroundColor: 'rgba(255, 255, 255, 0.5)',
+              borderRadius: '50%',
+              top: `${Math.random() * 100}%`,
+              left: `${Math.random() * 100}%`,
+              animation: `float ${Math.random() * 10 + 10}s ease-in-out infinite`,
+              animationDelay: `${Math.random() * 5}s`,
+              opacity: Math.random() * 0.5 + 0.2
+            }}
+          />
+        ))}
+      </div>
+    );
+  };
+
   const heroStyle = {
-    padding: '5rem 2rem',
+    padding: '8rem 2rem 6rem',
     textAlign: 'center',
-    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
     color: 'white',
-    borderRadius: '0 0 2rem 2rem'
+    position: 'relative',
+    overflow: 'hidden',
+    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 25%, #5b73e8 50%, #4e54c8 75%, #667eea 100%)',
+    backgroundSize: '400% 400%',
+    animation: 'gradientShift 15s ease infinite'
   };
 
   const containerStyle = {
-    maxWidth: '800px',
-    margin: '0 auto'
+    maxWidth: '1200px',
+    margin: '0 auto',
+    position: 'relative',
+    zIndex: 1,
+    opacity: visible ? 1 : 0,
+    transform: visible ? 'translateY(0)' : 'translateY(30px)',
+    transition: 'opacity 1.2s ease, transform 1.2s ease'
   };
 
   const headingStyle = {
-    fontSize: '3rem',
-    fontWeight: 'bold',
+    fontSize: 'clamp(2.5rem, 8vw, 4rem)',
+    fontWeight: '800',
     marginBottom: '1.5rem',
-    lineHeight: '1.2'
+    lineHeight: '1.2',
+    letterSpacing: '-0.5px',
+    textShadow: '0 2px 10px rgba(0,0,0,0.2)'
   };
 
   const subheadingStyle = {
-    fontSize: '1.25rem',
-    marginBottom: '2rem',
-    opacity: 0.9,
-    lineHeight: '1.6'
+    fontSize: 'clamp(1.1rem, 3vw, 1.4rem)',
+    marginBottom: '3rem',
+    opacity: 0.95,
+    lineHeight: '1.6',
+    maxWidth: '800px',
+    margin: '0 auto 3rem'
   };
 
   const buttonContainerStyle = {
     display: 'flex',
     justifyContent: 'center',
-    gap: '1rem',
-    flexWrap: 'wrap'
+    gap: '1.5rem',
+    flexWrap: 'wrap',
+    marginBottom: '4rem'
   };
 
   const primaryButtonStyle = {
     backgroundColor: '#10B981',
     color: 'white',
     border: 'none',
-    padding: '0.75rem 2rem',
-    borderRadius: '0.5rem',
-    fontSize: '1.125rem',
+    padding: '1rem 2.5rem',
+    borderRadius: '0.6rem',
+    fontSize: '1.2rem',
     fontWeight: '600',
     cursor: 'pointer',
-    transition: 'background-color 0.3s, transform 0.2s'
+    boxShadow: '0 10px 25px rgba(16,185,129,0.4)',
+    transition: 'transform 0.3s, box-shadow 0.3s',
+    outline: 'none',
+    position: 'relative',
+    overflow: 'hidden',
+    zIndex: 1
   };
 
   const secondaryButtonStyle = {
     backgroundColor: 'transparent',
     color: 'white',
     border: '2px solid white',
-    padding: '0.75rem 2rem',
-    borderRadius: '0.5rem',
-    fontSize: '1.125rem',
+    padding: '1rem 2.5rem',
+    borderRadius: '0.6rem',
+    fontSize: '1.2rem',
     fontWeight: '600',
     cursor: 'pointer',
-    transition: 'background-color 0.3s, color 0.3s'
+    transition: 'all 0.3s',
+    outline: 'none',
+    position: 'relative',
+    zIndex: 1
+  };
+
+  const statsContainerStyle = {
+    display: 'flex',
+    justifyContent: 'center',
+    gap: '3rem',
+    flexWrap: 'wrap',
+    marginTop: '3rem',
+    paddingTop: '3rem',
+    borderTop: '1px solid rgba(255,255,255,0.2)'
+  };
+
+  const statItemStyle = {
+    textAlign: 'center',
+    minWidth: '150px'
+  };
+
+  const statNumberStyle = {
+    fontSize: 'clamp(2rem, 5vw, 3rem)',
+    fontWeight: '800',
+    marginBottom: '0.5rem',
+    color: '#fcd34d'
+  };
+
+  const statLabelStyle = {
+    fontSize: '1.1rem',
+    opacity: 0.9
+  };
+
+  const testimonialStyle = {
+    maxWidth: '700px',
+    margin: '4rem auto 0',
+    padding: '1.5rem',
+    backgroundColor: 'rgba(255,255,255,0.1)',
+    borderRadius: '1rem',
+    backdropFilter: 'blur(10px)',
+    border: '1px solid rgba(255,255,255,0.2)',
+    fontStyle: 'italic',
+    position: 'relative'
+  };
+
+  const testimonialQuoteStyle = {
+    position: 'absolute',
+    top: '-20px',
+    left: '20px',
+    fontSize: '3rem',
+    opacity: 0.3
+  };
+
+  const testimonialAuthorStyle = {
+    marginTop: '1rem',
+    fontWeight: '600',
+    textAlign: 'right'
+  };
+
+  // Button hover effects
+  const hoverInPrimary = e => {
+    e.currentTarget.style.transform = 'translateY(-5px)';
+    e.currentTarget.style.boxShadow = '0 15px 30px rgba(16,185,129,0.5)';
+  };
+  
+  const hoverOutPrimary = e => {
+    e.currentTarget.style.transform = 'translateY(0)';
+    e.currentTarget.style.boxShadow = '0 10px 25px rgba(16,185,129,0.4)';
+  };
+
+  const hoverInSecondary = e => {
+    e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.2)';
+    e.currentTarget.style.transform = 'translateY(-5px)';
+  };
+  
+  const hoverOutSecondary = e => {
+    e.currentTarget.style.backgroundColor = 'transparent';
+    e.currentTarget.style.transform = 'translateY(0)';
   };
 
   return (
-    <div style={heroStyle}>
+    <div style={heroStyle} ref={sectionRef}>
+      {/* Keyframe animations */}
+      <style>
+        {`
+          @keyframes gradientShift {
+            0% {background-position:0% 50%;}
+            50% {background-position:100% 50%;}
+            100% {background-position:0% 50%;}
+          }
+          
+          @keyframes float {
+            0% {transform: translateY(0px) rotate(0deg);}
+            50% {transform: translateY(-20px) rotate(5deg);}
+            100% {transform: translateY(0px) rotate(0deg);}
+          }
+          
+          @keyframes pulse {
+            0% {box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);}
+            70% {box-shadow: 0 0 0 15px rgba(16, 185, 129, 0);}
+            100% {box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);}
+          }
+          
+          .pulse-button {
+            animation: pulse 2s infinite;
+          }
+        `}
+      </style>
+
+      {/* Particle background */}
+      <Particles />
+
       <div style={containerStyle}>
-        <h1 style={headingStyle}>Master Your Business & Learning Journey</h1>
+        {/* Floating icon */}
+        <div style={{
+          position: 'absolute',
+          top: '10%',
+          right: '5%',
+          fontSize: '3rem',
+          opacity: 0.7,
+          transform: 'rotate(15deg)'
+        }}>
+          <FloatingElement duration={4}>🚀</FloatingElement>
+        </div>
+
+        <h1 style={headingStyle}>
+          Transform Your Business <span style={{ color: '#fcd34d' }}>Ideas into Reality</span>
+        </h1>
+        
         <p style={subheadingStyle}>
-          Access business ideas, roadmaps, courses, and resources to accelerate your growth and success.
+          Join thousands of successful entrepreneurs who have launched and scaled their businesses 
+          with our premium resources, expert roadmaps, and actionable strategies.
         </p>
+
         <div style={buttonContainerStyle}>
-          <Link to="/business-ideas"><button style={primaryButtonStyle}>Explore Ideas</button></Link>
-          <Link to="/roadmaps"><button style={secondaryButtonStyle}>Best Seller Roadmaps</button></Link>
+          <Link to="/business-ideas">
+            <button
+              style={{...primaryButtonStyle, animation: 'pulse 2s infinite'}}
+              className="pulse-button"
+              onMouseEnter={hoverInPrimary}
+              onMouseLeave={hoverOutPrimary}
+            >
+              Explore Business Ideas
+            </button>
+          </Link>
+          <Link to="/roadmaps">
+            <button
+              style={secondaryButtonStyle}
+              onMouseEnter={hoverInSecondary}
+              onMouseLeave={hoverOutSecondary}
+            >
+              View Pro Roadmaps
+            </button>
+          </Link>
+        </div>
+
+        {/* Stats section */}
+        <div style={statsContainerStyle}>
+          <div style={statItemStyle}>
+            <div style={statNumberStyle}>{counters.entrepreneurs}+</div>
+            <div style={statLabelStyle}>Happy Entrepreneurs</div>
+          </div>
+          <div style={statItemStyle}>
+            <div style={statNumberStyle}>{counters.roadmaps}+</div>
+            <div style={statLabelStyle}>Business Roadmaps</div>
+          </div>
+          <div style={statItemStyle}>
+            <div style={statNumberStyle}>{counters.successRate}%</div>
+            <div style={statLabelStyle}>Success Rate</div>
+          </div>
+        </div>
+
+        {/* Testimonial */}
+        <div style={testimonialStyle}>
+          <div style={testimonialQuoteStyle}>"</div>
+          <p>
+            This platform completely transformed my business trajectory. The roadmaps are invaluable and 
+            the resources helped me scale from a side hustle to a six-figure business in under a year!
+          </p>
+          <div style={testimonialAuthorStyle}>
+            — Sarah T., Founder of TechStart
+          </div>
         </div>
       </div>
     </div>

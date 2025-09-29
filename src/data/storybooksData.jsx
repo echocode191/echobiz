@@ -1,4 +1,6 @@
+// /workspaces/echobiz/src/data/storybooksData.jsx
 export const storybooks = [
+  // Free Storybooks (Extended Content)
   {
     id: 1,
     title: "The Entrepreneur's Journey",
@@ -6,44 +8,349 @@ export const storybooks = [
     category: "Motivation",
     isPaid: false,
     content: "Short stories of resilience, innovation, and success in the business world.",
-    pages: 12
+    pages: 12,
+    details: [
+      "Discover how Elon Musk overcame numerous failures to build multiple billion-dollar companies",
+      "Learn about Sara Blakely's journey from selling fax machines to creating Spanx",
+      "Read how Howard Schultz transformed Starbucks from a small coffee shop into a global empire",
+      "Explore the story of Richard Branson and his unconventional path to business success",
+      "Learn about Oprah Winfrey's rise from poverty to becoming a media mogul",
+      "Discover how Jeff Bezos built Amazon from a small online bookstore to an e-commerce giant",
+      "Read about the struggles and triumphs of Mark Zuckerberg in creating Facebook",
+      "Learn how Arianna Huffington overcame rejection to build The Huffington Post",
+      "Explore the journey of Jack Ma from English teacher to founder of Alibaba",
+      "Discover how Steve Jobs revolutionized multiple industries through Apple"
+    ],
+    color: "#8B5CF6",
+    coverImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=300&h=400&fit=crop"
   },
   {
     id: 2,
-    title: "Business Fables for Kids",
-    description: "Teaching entrepreneurship through stories",
-    category: "Children",
-    isPaid: true,
-    price: "$12.99",
-    content: "Engaging stories that teach children business concepts and financial literacy.",
-    pages: 45
-  },
-  {
-    id: 3,
     title: "Innovation Pioneers",
     description: "Stories behind groundbreaking inventions",
     category: "Innovation",
     isPaid: false,
     content: "How revolutionary products and companies changed the world.",
-    pages: 18
+    pages: 18,
+    details: [
+      "Discover how Thomas Edison persisted through thousands of failed experiments to invent the light bulb",
+      "Learn about the Wright brothers' determination to achieve powered flight despite numerous setbacks",
+      "Read how Alexander Graham Bell's invention of the telephone transformed communication",
+      "Explore the story of Marie Curie's groundbreaking research on radioactivity",
+      "Learn about the development of the internet and its impact on modern society",
+      "Discover how Tim Berners-Lee created the World Wide Web and gave it away for free",
+      "Read about the creation of the iPhone and how it revolutionized mobile technology",
+      "Learn about the development of electric vehicles and their potential to transform transportation",
+      "Explore the story of CRISPR gene editing and its implications for medicine",
+      "Discover how renewable energy technologies are reshaping our approach to power generation"
+    ],
+    color: "#3B82F6",
+    coverImage: "https://images.unsplash.com/photo-1531746790737-6f2e2d2d0e0e?w=300&h=400&fit=crop"
   },
   {
-    id: 4,
-    title: "Resilience Tales",
-    description: "Stories of overcoming adversity",
-    category: "Inspiration",
-    isPaid: true,
-    price: "$11.99",
-    content: "Powerful stories of individuals who overcame immense challenges to achieve success.",
-    pages: 60
-  },
-  {
-    id: 5,
+    id: 3,
     title: "Startup Diaries",
     description: "Real stories from the startup world",
     category: "Business",
     isPaid: false,
     content: "Firsthand accounts of launching and growing startups from the ground up.",
-    pages: 22
+    pages: 22,
+    details: [
+      "Read about the early days of Airbnb and how the founders sold cereal to fund their idea",
+      "Learn how Dropbox used a simple demo video to validate their product concept",
+      "Discover the story of Instagram's rapid growth and acquisition by Facebook",
+      "Read about how Slack evolved from a failed gaming company into a billion-dollar business",
+      "Learn about the challenges Uber faced in disrupting the traditional taxi industry",
+      "Discover how Netflix transitioned from DVD rentals to streaming content",
+      "Read about the founding of Spotify and its battle with music industry giants",
+      "Learn how WhatsApp grew to 450 million users with just 50 employees",
+      "Discover the story of Pinterest and how it persevered through slow initial growth",
+      "Read about how Etsy created a marketplace for handmade goods and built a community"
+    ],
+    color: "#EF4444",
+    coverImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=300&h=400&fit=crop"
+  },
+  {
+    id: 4,
+    title: "Leadership Lessons",
+    description: "Wisdom from great leaders",
+    category: "Leadership",
+    isPaid: false,
+    content: "Insights and lessons from influential leaders across industries.",
+    pages: 15,
+    details: [
+      "Learn about Nelson Mandela's leadership during South Africa's transition to democracy",
+      "Discover how Mahatma Gandhi led India to independence through nonviolent resistance",
+      "Read about Abraham Lincoln's leadership during the American Civil War",
+      "Learn about Winston Churchill's inspiring leadership during World War II",
+      "Discover how Martin Luther King Jr. advanced civil rights through his vision and oratory",
+      "Read about Margaret Thatcher's transformative leadership as Prime Minister of the UK",
+      "Learn about Steve Jobs' leadership style and its impact on Apple's success",
+      "Discover how Indra Nooyi redefined leadership at PepsiCo",
+      "Read about Satya Nadella's transformation of Microsoft's culture and business",
+      "Learn about Jacinda Ardern's empathetic leadership style as Prime Minister of New Zealand"
+    ],
+    color: "#F59E0B",
+    coverImage: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=300&h=400&fit=crop"
+  },
+  {
+    id: 5,
+    title: "Failure to Success",
+    description: "Stories of turning failure into triumph",
+    category: "Inspiration",
+    isPaid: false,
+    content: "How setbacks and failures led to incredible success stories.",
+    pages: 20,
+    details: [
+      "Read about J.K. Rowling's journey from living on benefits to becoming a bestselling author",
+      "Learn how Colonel Sanders faced over 1,000 rejections before KFC became successful",
+      "Discover how Henry Ford failed multiple times before revolutionizing the automobile industry",
+      "Read about Stephen King's struggles with rejection before becoming a horror fiction master",
+      "Learn how Walt Disney was fired for 'lacking imagination' before building an entertainment empire",
+      "Discover how Vera Wang's failure to make the Olympic team led to a successful fashion career",
+      "Read about Thomas Edison's thousands of failed experiments before successful inventions",
+      "Learn how Soichiro Honda's factory was destroyed before building Honda Motor Company",
+      "Discover how Fred Astaire was told he 'can't act, can't sing, slightly bald' before his Hollywood success",
+      "Read about Oprah Winfrey's early career setbacks before becoming a media mogul"
+    ],
+    color: "#10B981",
+    coverImage: "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=300&h=400&fit=crop"
+  },
+  {
+    id: 6,
+    title: "Women in Business",
+    description: "Trailblazing female entrepreneurs",
+    category: "Women",
+    isPaid: false,
+    content: "Inspiring stories of women who broke barriers in business.",
+    pages: 16,
+    details: [
+      "Read about Madam C.J. Walker, the first female self-made millionaire in America",
+      "Learn about Coco Chanel's revolutionary impact on the fashion industry",
+      "Discover how Estée Lauder built a cosmetics empire with just four products",
+      "Read about Debbi Fields' journey from cookie baker to business owner",
+      "Learn about Tory Burch's rise from public relations executive to fashion designer",
+      "Discover how Spanx founder Sara Blakely revolutionized women's undergarments",
+      "Read about Arianna Huffington's transformation from politician to media mogul",
+      "Learn about Katrina Lake's journey in building Stitch Fix into a public company",
+      "Discover how Whitney Wolfe Herd created Bumble and became the youngest female CEO to take a company public",
+      "Read about Gwynne Shotwell's leadership at SpaceX and her role in commercial spaceflight"
+    ],
+    color: "#EC4899",
+    coverImage: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=400&fit=crop"
+  },
+  {
+    id: 7,
+    title: "Tech Visionaries",
+    description: "Stories of technology pioneers",
+    category: "Technology",
+    isPaid: false,
+    content: "How tech innovators shaped our digital world.",
+    pages: 14,
+    details: [
+      "Read about Bill Gates' vision for a computer on every desk and in every home",
+      "Learn about Steve Wozniak's technical genius in creating the first Apple computer",
+      "Discover how Larry Page and Sergey Brin developed Google's search algorithm",
+      "Read about Mark Zuckerberg's creation of Facebook in his Harvard dorm room",
+      "Learn about Elon Musk's ambitious vision for space exploration and electric vehicles",
+      "Discover how Linus Torvalds created Linux and changed the world of operating systems",
+      "Read about the development of the World Wide Web by Tim Berners-Lee",
+      "Learn about Jeff Bezos' vision for the 'Earth's biggest bookstore'",
+      "Discover how Jack Dorsey created Twitter and revolutionized social communication",
+      "Read about the creation of Wikipedia by Jimmy Wales and Larry Sanger"
+    ],
+    color: "#3B82F6",
+    coverImage: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=300&h=400&fit=crop"
+  },
+  {
+    id: 8,
+    title: "Social Entrepreneurs",
+    description: "Business with a purpose",
+    category: "Social Impact",
+    isPaid: false,
+    content: "Stories of entrepreneurs making a difference in the world.",
+    pages: 18,
+    details: [
+      "Read about Muhammad Yunus and the founding of Grameen Bank and microfinance",
+      "Learn about Blake Mycoskie's creation of TOMS Shoes and the one-for-one model",
+      "Discover how Scott Harrison founded charity: water to bring clean water to developing nations",
+      "Read about Wendy Kopp's creation of Teach For America to address educational inequality",
+      "Learn about Bill Drayton's pioneering work in social entrepreneurship through Ashoka",
+      "Discover how Jacqueline Novogratz founded Acumen to invest in sustainable solutions to poverty",
+      "Read about Paul Farmer's work in global health through Partners in Health",
+      "Learn about Leila Janah's creation of Samasource to provide digital work to marginalized people",
+      "Discover how Wendy Kopp expanded Teach For America into a global network",
+      "Read about Nobel Peace Prize winner Muhammad Yunus' vision for a world without poverty"
+    ],
+    color: "#10B981",
+    coverImage: "https://images.unsplash.com/photo-1559027615-cd7829a4e65b?w=300&h=400&fit=crop"
+  },
+  {
+    id: 9,
+    title: "Creative Minds",
+    description: "Stories of artistic innovation",
+    category: "Arts",
+    isPaid: false,
+    content: "How artists and creators revolutionized their fields.",
+    pages: 12,
+    details: [
+      "Read about Pablo Picasso's revolutionary approach to art and cubism",
+      "Learn about Frida Kahlo's unique artistic vision despite physical challenges",
+      "Discover how Leonardo da Vinci's curiosity led to masterpieces across multiple disciplines",
+      "Read about Vincent van Gogh's struggles and posthumous fame",
+      "Learn about Maya Angelou's powerful voice in literature and civil rights",
+      "Discover how Ludwig van Beethoven continued composing despite hearing loss",
+      "Read about The Beatles' transformation of popular music",
+      "Learn about Steven Spielberg's journey from amateur filmmaker to Hollywood director",
+      "Discover how J.K. Rowling created the magical world of Harry Potter",
+      "Read about Beyoncé's evolution from pop star to business mogul and cultural icon"
+    ],
+    color: "#8B5CF6",
+    coverImage: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300&h=400&fit=crop"
+  },
+  {
+    id: 10,
+    title: "Unlikely Success",
+    description: "Unexpected paths to achievement",
+    category: "Inspiration",
+    isPaid: false,
+    content: "Stories of people who succeeded against all odds.",
+    pages: 16,
+    details: [
+      "Read about Chris Gardner's journey from homelessness to successful stockbroker",
+      "Learn about Temple Grandin's autism and her revolutionary work in animal science",
+      "Discover how Stephen Hawking continued his groundbreaking work despite ALS",
+      "Read about Malala Yousafzai's advocacy for girls' education after surviving an assassination attempt",
+      "Learn about Arunima Sinha, the first female amputee to climb Mount Everest",
+      "Discover how Nick Vujicic, born without limbs, became a motivational speaker",
+      "Read about Liz Murray's journey from homeless to Harvard graduate",
+      "Learn about Ben Carson's rise from poverty to renowned neurosurgeon",
+      "Discover how Iman Shumpert overcame a career-threatening injury to win an NBA championship",
+      "Read about Bethany Hamilton's return to professional surfing after losing her arm to a shark"
+    ],
+    color: "#F59E0B",
+    coverImage: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=300&h=400&fit=crop"
+  },
+  
+  // Paid Storybooks with KES pricing
+  {
+    id: 11,
+    title: "Business Fables for Kids",
+    description: "Teaching entrepreneurship through stories",
+    category: "Children",
+    isPaid: true,
+    price: "KES 399",
+    content: "Engaging stories that teach children business concepts and financial literacy.",
+    pages: 45,
+    color: "#EC4899",
+    coverImage: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=300&h=400&fit=crop"
+  },
+  {
+    id: 12,
+    title: "Resilience Tales",
+    description: "Stories of overcoming adversity",
+    category: "Inspiration",
+    isPaid: true,
+    price: "KES 499",
+    content: "Powerful stories of individuals who overcame immense challenges to achieve success.",
+    pages: 60,
+    color: "#10B981",
+    coverImage: "https://images.unsplash.com/photo-1493246507139-91e8fad9978e?w=300&h=400&fit=crop"
+  },
+  {
+    id: 13,
+    title: "Innovation Chronicles",
+    description: "The history of groundbreaking inventions",
+    category: "Innovation",
+    isPaid: true,
+    price: "KES 599",
+    content: "Comprehensive collection of stories behind revolutionary inventions and discoveries.",
+    pages: 85,
+    color: "#3B82F6",
+    coverImage: "https://images.unsplash.com/photo-1531746790737-6f2e2d2d0e0e?w=300&h=400&fit=crop"
+  },
+  {
+    id: 14,
+    title: "Leadership Anthology",
+    description: "Wisdom from history's greatest leaders",
+    category: "Leadership",
+    isPaid: true,
+    price: "KES 599",
+    content: "In-depth stories and lessons from influential leaders throughout history.",
+    pages: 75,
+    color: "#F59E0B",
+    coverImage: "https://images.unsplash.com/photo-1557804506-669a67965ba0?w=300&h=400&fit=crop"
+  },
+  {
+    id: 15,
+    title: "Women Who Changed the World",
+    description: "Stories of pioneering women",
+    category: "Women",
+    isPaid: true,
+    price: "KES 499",
+    content: "Inspiring stories of women who broke barriers and changed history.",
+    pages: 70,
+    color: "#EC4899",
+    coverImage: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=300&h=400&fit=crop"
+  },
+  {
+    id: 16,
+    title: "Tech Titans",
+    description: "The rise of technology giants",
+    category: "Technology",
+    isPaid: true,
+    price: "KES 699",
+    content: "Comprehensive stories behind the world's most successful technology companies.",
+    pages: 90,
+    color: "#3B82F6",
+    coverImage: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=300&h=400&fit=crop"
+  },
+  {
+    id: 17,
+    title: "Social Impact Heroes",
+    description: "Changing the world through business",
+    category: "Social Impact",
+    isPaid: true,
+    price: "KES 599",
+    content: "Stories of entrepreneurs who built successful businesses while making a positive impact.",
+    pages: 80,
+    color: "#10B981",
+    coverImage: "https://images.unsplash.com/photo-1559027615-cd7829a4e65b?w=300&h=400&fit=crop"
+  },
+  {
+    id: 18,
+    title: "Creative Revolutionaries",
+    description: "Artists who changed their fields",
+    category: "Arts",
+    isPaid: true,
+    price: "KES 499",
+    content: "Stories of artists and creators who revolutionized their respective fields.",
+    pages: 65,
+    color: "#8B5CF6",
+    coverImage: "https://images.unsplash.com/photo-1544947950-fa07a98d237f?w=300&h=400&fit=crop"
+  },
+  {
+    id: 19,
+    title: "Against All Odds",
+    description: "Triumph over adversity",
+    category: "Inspiration",
+    isPaid: true,
+    price: "KES 499",
+    content: "Powerful stories of individuals who achieved success despite incredible obstacles.",
+    pages: 75,
+    color: "#F59E0B",
+    coverImage: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=300&h=400&fit=crop"
+  },
+  {
+    id: 20,
+    title: "Global Business Legends",
+    description: "International business success stories",
+    category: "Business",
+    isPaid: true,
+    price: "KES 699",
+    content: "Stories of entrepreneurs who built global business empires from humble beginnings.",
+    pages: 95,
+    color: "#EF4444",
+    coverImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=300&h=400&fit=crop"
   }
 ];

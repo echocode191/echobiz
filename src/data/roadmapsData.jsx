@@ -1,4 +1,6 @@
+// /workspaces/echobiz/src/data/roadmapsData.jsx
 export const roadmaps = [
+  // Free Roadmaps (Extended Content)
   {
     id: 1,
     title: "Software Engineer Roadmap",
@@ -6,44 +8,349 @@ export const roadmaps = [
     category: "Career",
     isPaid: false,
     content: "Learn programming fundamentals, data structures, algorithms, and system design.",
-    steps: 5
+    steps: 5,
+    details: [
+      "Master programming fundamentals in at least one language",
+      "Learn data structures and algorithms for efficient problem-solving",
+      "Understand database design and management",
+      "Master web development frameworks and technologies",
+      "Learn system design principles and best practices",
+      "Build a portfolio of projects to showcase your skills",
+      "Understand version control systems like Git",
+      "Learn about software testing and quality assurance",
+      "Master development tools and environments",
+      "Prepare for technical interviews and assessments"
+    ],
+    color: "#3B82F6",
+    coverImage: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=300&h=400&fit=crop"
   },
   {
     id: 2,
-    title: "Airbnb Business Launch",
-    description: "Complete guide to starting an Airbnb business",
-    category: "Business",
-    isPaid: true,
-    price: "$29.99",
-    content: "Step-by-step roadmap including property selection, setup, marketing, and scaling your Airbnb business.",
-    steps: 12
-  },
-  {
-    id: 3,
-    title: "Financial Independence",
+    title: "Financial Independence Roadmap",
     description: "Path to achieving financial freedom",
     category: "Finance",
     isPaid: false,
     content: "Learn budgeting, saving, investing, and creating passive income streams.",
-    steps: 7
+    steps: 7,
+    details: [
+      "Create a personal budget and track your expenses",
+      "Build an emergency fund covering 3-6 months of expenses",
+      "Pay off high-interest debt systematically",
+      "Start investing in retirement accounts and index funds",
+      "Diversify your investment portfolio across different asset classes",
+      "Develop multiple streams of passive income",
+      "Continuously educate yourself about personal finance",
+      "Set specific financial goals with timelines",
+      "Regularly review and adjust your financial plan",
+      "Consider consulting with a financial advisor for personalized guidance"
+    ],
+    color: "#F59E0B",
+    coverImage: "https://images.unsplash.com/photo-1563986768609-322ba1357f85?w=300&h=400&fit=crop"
   },
   {
-    id: 4,
-    title: "E-commerce Success",
-    description: "Building a profitable online store",
-    category: "Business",
-    isPaid: true,
-    price: "$34.99",
-    content: "Complete roadmap from product selection to scaling your e-commerce business.",
-    steps: 10
-  },
-  {
-    id: 5,
-    title: "Digital Marketing Expert",
+    id: 3,
+    title: "Digital Marketing Expert Roadmap",
     description: "Becoming a digital marketing specialist",
     category: "Marketing",
     isPaid: false,
     content: "Master SEO, social media, content marketing, and paid advertising strategies.",
-    steps: 8
+    steps: 8,
+    details: [
+      "Understand the fundamentals of marketing and consumer behavior",
+      "Master search engine optimization (SEO) techniques",
+      "Learn social media marketing across major platforms",
+      "Develop content marketing and copywriting skills",
+      "Understand email marketing and automation",
+      "Master paid advertising on platforms like Google and Facebook",
+      "Learn analytics and data-driven marketing",
+      "Develop a personal brand and portfolio",
+      "Stay updated with the latest digital marketing trends",
+      "Gain practical experience through real projects"
+    ],
+    color: "#8B5CF6",
+    coverImage: "https://images.unsplash.com/photo-1611926653458-1022b5b8a6a4?w=300&h=400&fit=crop"
+  },
+  {
+    id: 4,
+    title: "Web Development Career Path",
+    description: "Building a successful web development career",
+    category: "Technology",
+    isPaid: false,
+    content: "From beginner to professional web developer in structured steps.",
+    steps: 6,
+    details: [
+      "Learn HTML, CSS, and JavaScript fundamentals",
+      "Master responsive design and modern CSS frameworks",
+      "Understand front-end frameworks like React or Vue",
+      "Learn back-end development with Node.js or Python",
+      "Master database management and API development",
+      "Build a portfolio of diverse projects",
+      "Learn about version control with Git",
+      "Understand deployment and hosting options",
+      "Develop problem-solving and debugging skills",
+      "Prepare for technical interviews and assessments"
+    ],
+    color: "#10B981",
+    coverImage: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=300&h=400&fit=crop"
+  },
+  {
+    id: 5,
+    title: "Entrepreneurship Journey",
+    description: "From idea to successful business",
+    category: "Business",
+    isPaid: false,
+    content: "Step-by-step guide to launching and growing your own business.",
+    steps: 9,
+    details: [
+      "Identify a market need and validate your business idea",
+      "Conduct thorough market research and competitor analysis",
+      "Create a comprehensive business plan",
+      "Secure funding through investors, loans, or bootstrapping",
+      "Build a minimum viable product (MVP)",
+      "Develop a marketing and sales strategy",
+      "Assemble a talented team and company culture",
+      "Launch your product or service to the market",
+      "Gather feedback and iterate on your offering",
+      "Scale your business and explore growth opportunities"
+    ],
+    color: "#EF4444",
+    coverImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=300&h=400&fit=crop"
+  },
+  {
+    id: 6,
+    title: "Data Science Career Path",
+    description: "Becoming a data scientist",
+    category: "Technology",
+    isPaid: false,
+    content: "From statistics to machine learning and data visualization.",
+    steps: 8,
+    details: [
+      "Master statistics and probability fundamentals",
+      "Learn programming languages like Python or R",
+      "Understand data manipulation and cleaning techniques",
+      "Master data visualization tools and principles",
+      "Learn machine learning algorithms and applications",
+      "Understand big data technologies and frameworks",
+      "Develop domain expertise in a specific industry",
+      "Build a portfolio of data science projects",
+      "Learn to communicate insights effectively to stakeholders",
+      "Stay updated with the latest research and techniques"
+    ],
+    color: "#3B82F6",
+    coverImage: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=300&h=400&fit=crop"
+  },
+  {
+    id: 7,
+    title: "UX/UI Design Career",
+    description: "Path to becoming a UX/UI designer",
+    category: "Design",
+    isPaid: false,
+    content: "Master user research, design principles, and industry tools.",
+    steps: 7,
+    details: [
+      "Learn design fundamentals and principles",
+      "Master industry-standard design tools like Figma or Sketch",
+      "Understand user research and usability testing methods",
+      "Learn information architecture and wireframing",
+      "Master visual design and typography",
+      "Understand interaction design and prototyping",
+      "Build a strong portfolio showcasing your design process",
+      "Learn to collaborate effectively with developers",
+      "Stay updated with design trends and best practices",
+      "Develop soft skills for client communication and presentation"
+    ],
+    color: "#8B5CF6",
+    coverImage: "https://images.unsplash.com/photo-1561070791-2526d30994b5?w=300&h=400&fit=crop"
+  },
+  {
+    id: 8,
+    title: "Content Creation Success",
+    description: "Building a successful content creation career",
+    category: "Media",
+    isPaid: false,
+    content: "From finding your niche to monetizing your content.",
+    steps: 6,
+    details: [
+      "Identify your niche and target audience",
+      "Develop your unique content style and voice",
+      "Choose the right platforms for your content type",
+      "Create a consistent content schedule",
+      "Engage with your audience and build a community",
+      "Explore monetization options like sponsorships and merchandise",
+      "Collaborate with other creators in your niche",
+      "Analyze your performance and optimize your strategy",
+      "Diversify your content across multiple platforms",
+      "Continuously improve your skills and adapt to trends"
+    ],
+    color: "#EC4899",
+    coverImage: "https://images.unsplash.com/photo-1533750349088-cd87192b87f5?w=300&h=400&fit=crop"
+  },
+  {
+    id: 9,
+    title: "Health and Wellness Coaching",
+    description: "Building a career in health coaching",
+    category: "Health",
+    isPaid: false,
+    content: "From certification to building a successful coaching practice.",
+    steps: 5,
+    details: [
+      "Get certified in your area of expertise",
+      "Develop your coaching methodology and programs",
+      "Define your target market and ideal client",
+      "Build your online presence and personal brand",
+      "Create a marketing strategy to attract clients",
+      "Develop effective coaching packages and pricing",
+      "Master client retention and success strategies",
+      "Build a network of professionals for referrals",
+      "Continuously educate yourself on health trends",
+      "Measure and showcase client success stories"
+    ],
+    color: "#10B981",
+    coverImage: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=300&h=400&fit=crop"
+  },
+  {
+    id: 10,
+    title: "Real Estate Investment Path",
+    description: "Building wealth through real estate",
+    category: "Finance",
+    isPaid: false,
+    content: "From first property to building a real estate portfolio.",
+    steps: 8,
+    details: [
+      "Educate yourself on real estate fundamentals",
+      "Assess your financial situation and secure financing",
+      "Research markets and identify investment properties",
+      "Conduct thorough due diligence on potential properties",
+      "Make your first investment and manage the property",
+      "Build a team of professionals (agents, contractors, etc.)",
+      "Reinvest profits to grow your portfolio",
+      "Explore different investment strategies (flipping, renting, etc.)",
+      "Understand tax implications and benefits",
+      "Scale your investments and consider commercial properties"
+    ],
+    color: "#F59E0B",
+    coverImage: "https://images.unsplash.com/photo-1560518883-ce09059cdba4?w=300&h=400&fit=crop"
+  },
+  
+  // Paid Roadmaps with KES pricing
+  {
+    id: 11,
+    title: "Airbnb Business Launch",
+    description: "Complete guide to starting an Airbnb business",
+    category: "Business",
+    isPaid: true,
+    price: "KES 999",
+    content: "Step-by-step roadmap including property selection, setup, marketing, and scaling your Airbnb business.",
+    steps: 12,
+    color: "#EF4444",
+    coverImage: "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=300&h=400&fit=crop"
+  },
+  {
+    id: 12,
+    title: "E-commerce Success",
+    description: "Building a profitable online store",
+    category: "Business",
+    isPaid: true,
+    price: "KES 799",
+    content: "Complete roadmap from product selection to scaling your e-commerce business.",
+    steps: 10,
+    color: "#3B82F6",
+    coverImage: "https://images.unsplash.com/photo-1522199755839-a2bacb67c546?w=300&h=400&fit=crop"
+  },
+  {
+    id: 13,
+    title: "Advanced Software Engineering",
+    description: "From junior to senior software engineer",
+    category: "Career",
+    isPaid: true,
+    price: "KES 599",
+    content: "Comprehensive roadmap to advance your software engineering career.",
+    steps: 9,
+    color: "#3B82F6",
+    coverImage: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=300&h=400&fit=crop"
+  },
+  {
+    id: 14,
+    title: "Cryptocurrency Investment",
+    description: "Building wealth through cryptocurrency",
+    category: "Finance",
+    isPaid: true,
+    price: "KES 599",
+    content: "Complete guide to understanding and investing in cryptocurrencies.",
+    steps: 8,
+    color: "#F59E0B",
+    coverImage: "https://images.unsplash.com/photo-1621504450181-5d356f61d307?w=300&h=400&fit=crop"
+  },
+  {
+    id: 15,
+    title: "Social Media Marketing Agency",
+    description: "Building a successful marketing agency",
+    category: "Marketing",
+    isPaid: true,
+    price: "KES 799",
+    content: "Step-by-step roadmap to launch and grow your own social media marketing agency.",
+    steps: 11,
+    color: "#8B5CF6",
+    coverImage: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=300&h=400&fit=crop"
+  },
+  {
+    id: 16,
+    title: "Mobile App Development Business",
+    description: "From idea to profitable app business",
+    category: "Technology",
+    isPaid: true,
+    price: "KES 899",
+    content: "Complete roadmap to develop, launch, and monetize mobile applications.",
+    steps: 10,
+    color: "#10B82F6",
+    coverImage: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=300&h=400&fit=crop"
+  },
+  {
+    id: 17,
+    title: "Dropshipping Business",
+    description: "Building a profitable dropshipping store",
+    category: "Business",
+    isPaid: true,
+    price: "KES 499",
+    content: "Step-by-step guide to launching and scaling a dropshipping business.",
+    steps: 9,
+    color: "#EF4444",
+    coverImage: "https://images.unsplash.com/photo-1472851294608-062f824d29cc?w=300&h=400&fit=crop"
+  },
+  {
+    id: 18,
+    title: "Stock Trading Mastery",
+    description: "Becoming a successful stock trader",
+    category: "Finance",
+    isPaid: true,
+    price: "KES 699",
+    content: "Comprehensive roadmap to master stock trading strategies.",
+    steps: 8,
+    color: "#F59E0B",
+    coverImage: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=300&h=400&fit=crop"
+  },
+  {
+    id: 19,
+    title: "YouTube Channel Success",
+    description: "Building and monetizing a YouTube channel",
+    category: "Media",
+    isPaid: true,
+    price: "KES 399",
+    content: "Complete roadmap to grow and monetize a successful YouTube channel.",
+    steps: 7,
+    color: "#EC4899",
+    coverImage: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=300&h=400&fit=crop"
+  },
+  {
+    id: 20,
+    title: "Freelance Career Success",
+    description: "Building a profitable freelance career",
+    category: "Career",
+    isPaid: true,
+    price: "KES 499",
+    content: "Step-by-step guide to launch and grow a successful freelance career.",
+    steps: 8,
+    color: "#8B5CF6",
+    coverImage: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=300&h=400&fit=crop"
   }
 ];

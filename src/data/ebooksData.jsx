@@ -1,4 +1,6 @@
+// /workspaces/echobiz/src/data/ebooksData.jsx
 export const ebooks = [
+  // Free Ebooks (Extended Content)
   {
     id: 1,
     title: "Business Startup Guide",
@@ -6,44 +8,349 @@ export const ebooks = [
     category: "Business",
     isPaid: false,
     content: "Learn the fundamentals of business planning, market research, and funding options.",
-    pages: 15
+    pages: 15,
+    details: [
+      "Understand the basics of business planning and strategy development",
+      "Learn how to conduct effective market research and competitor analysis",
+      "Discover different funding options for startups and how to approach investors",
+      "Master the art of creating a compelling business plan",
+      "Learn about legal requirements and business registration processes",
+      "Understand how to build a strong brand identity from scratch",
+      "Discover effective marketing strategies for new businesses",
+      "Learn how to hire and manage your first employees",
+      "Understand financial management basics for startups",
+      "Explore growth strategies and scaling your business successfully"
+    ],
+    color: "#3B82F6",
+    coverImage: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=300&h=400&fit=crop"
   },
   {
     id: 2,
-    title: "Digital Marketing Mastery",
-    description: "Complete guide to online marketing",
-    category: "Marketing",
-    isPaid: true,
-    price: "$14.99",
-    content: "Comprehensive strategies for SEO, social media, content marketing, and paid advertising.",
-    pages: 85
-  },
-  {
-    id: 3,
     title: "Personal Finance 101",
     description: "Take control of your financial future",
     category: "Finance",
     isPaid: false,
     content: "Learn budgeting, saving, investing, and debt management strategies.",
-    pages: 20
+    pages: 20,
+    details: [
+      "Create a personalized budget that works with your lifestyle",
+      "Understand different saving strategies and their benefits",
+      "Learn about various investment options for beginners",
+      "Master debt management and reduction techniques",
+      "Understand credit scores and how to improve them",
+      "Learn about tax planning strategies for individuals",
+      "Set realistic financial goals and create action plans",
+      "Understand different types of insurance and their importance",
+      "Learn how to build an emergency fund",
+      "Explore retirement planning options regardless of your age"
+    ],
+    color: "#F59E0B",
+    coverImage: "https://images.unsplash.com/photo-1563986768609-322ba1357f85?w=300&h=400&fit=crop"
   },
   {
-    id: 4,
-    title: "Productivity Hacks",
-    description: "Get more done in less time",
-    category: "Productivity",
-    isPaid: true,
-    price: "$9.99",
-    content: "Proven techniques to boost your productivity and achieve your goals faster.",
-    pages: 65
-  },
-  {
-    id: 5,
+    id: 3,
     title: "Web Development Basics",
     description: "Introduction to modern web development",
     category: "Technology",
     isPaid: false,
     content: "Learn HTML, CSS, JavaScript fundamentals and modern development tools.",
-    pages: 25
+    pages: 25,
+    details: [
+      "Master HTML5 structure and semantic elements",
+      "Learn CSS3 for styling and responsive design",
+      "Understand JavaScript fundamentals and DOM manipulation",
+      "Discover modern development tools and workflows",
+      "Learn about version control with Git",
+      "Understand the basics of web hosting and deployment",
+      "Explore popular JavaScript frameworks and libraries",
+      "Learn about web accessibility best practices",
+      "Understand web security fundamentals",
+      "Discover resources for continued learning in web development"
+    ],
+    color: "#10B981",
+    coverImage: "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=300&h=400&fit=crop"
+  },
+  {
+    id: 4,
+    title: "Digital Marketing Essentials",
+    description: "Fundamentals of online marketing",
+    category: "Marketing",
+    isPaid: false,
+    content: "Learn the basics of SEO, social media, and content marketing.",
+    pages: 18,
+    details: [
+      "Understand the digital marketing landscape and key channels",
+      "Learn the fundamentals of Search Engine Optimization (SEO)",
+      "Discover social media marketing strategies for beginners",
+      "Learn about content marketing and its importance",
+      "Understand email marketing basics and best practices",
+      "Learn about paid advertising options and budgeting",
+      "Discover how to measure marketing success with analytics",
+      "Understand the importance of mobile marketing",
+      "Learn about building an online brand presence",
+      "Explore ethical considerations in digital marketing"
+    ],
+    color: "#8B5CF6",
+    coverImage: "https://images.unsplash.com/photo-1611926653458-1022b5b8a6a4?w=300&h=400&fit=crop"
+  },
+  {
+    id: 5,
+    title: "Productivity Hacks",
+    description: "Get more done in less time",
+    category: "Productivity",
+    isPaid: false,
+    content: "Proven techniques to boost your productivity and achieve your goals faster.",
+    pages: 22,
+    details: [
+      "Understand the principles of effective time management",
+      "Learn techniques for overcoming procrastination",
+      "Discover different productivity systems and methodologies",
+      "Learn how to prioritize tasks effectively",
+      "Understand the importance of taking breaks and avoiding burnout",
+      "Learn about digital tools for boosting productivity",
+      "Discover techniques for maintaining focus and minimizing distractions",
+      "Understand the connection between physical health and productivity",
+      "Learn about goal setting and tracking progress",
+      "Explore strategies for maintaining motivation over the long term"
+    ],
+    color: "#EF4444",
+    coverImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=300&h=400&fit=crop"
+  },
+  {
+    id: 6,
+    title: "Healthy Eating Guide",
+    description: "Nutrition fundamentals for everyday life",
+    category: "Health",
+    isPaid: false,
+    content: "Learn about balanced nutrition, meal planning, and healthy eating habits.",
+    pages: 16,
+    details: [
+      "Understand the basics of nutrition and macronutrients",
+      "Learn about balanced meal planning and preparation",
+      "Discover healthy eating habits for different lifestyles",
+      "Learn about portion control and mindful eating",
+      "Understand the importance of hydration",
+      "Learn about reading and understanding food labels",
+      "Discover healthy cooking techniques and recipes",
+      "Understand how to navigate eating out and social situations",
+      "Learn about nutrition for specific health goals",
+      "Explore strategies for maintaining healthy eating habits long-term"
+    ],
+    color: "#10B981",
+    coverImage: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=300&h=400&fit=crop"
+  },
+  {
+    id: 7,
+    title: "Mindfulness Meditation",
+    description: "Introduction to mindfulness practices",
+    category: "Wellness",
+    isPaid: false,
+    content: "Learn techniques for mindfulness and daily meditation to reduce stress.",
+    pages: 12,
+    details: [
+      "Understand the science behind mindfulness and meditation",
+      "Learn basic meditation techniques for beginners",
+      "Discover how to incorporate mindfulness into daily activities",
+      "Learn breathing techniques for stress reduction",
+      "Understand the benefits of regular meditation practice",
+      "Learn how to manage difficult emotions with mindfulness",
+      "Discover body scan and progressive relaxation techniques",
+      "Understand how to create a dedicated meditation space",
+      "Learn about different meditation styles and traditions",
+      "Explore resources for deepening your mindfulness practice"
+    ],
+    color: "#8B5CF6",
+    coverImage: "https://images.unsplash.com/photo-1506126613408-cca07d5b417f?w=300&h=400&fit=crop"
+  },
+  {
+    id: 8,
+    title: "Creative Writing Workshop",
+    description: "Unlock your writing potential",
+    category: "Writing",
+    isPaid: false,
+    content: "Learn techniques for fiction and non-fiction writing.",
+    pages: 20,
+    details: [
+      "Understand the fundamentals of storytelling and narrative structure",
+      "Learn techniques for developing compelling characters",
+      "Discover how to create engaging dialogue",
+      "Learn about different writing styles and genres",
+      "Understand the importance of setting and atmosphere",
+      "Learn techniques for overcoming writer's block",
+      "Discover the revision and editing process",
+      "Understand how to give and receive constructive feedback",
+      "Learn about publishing options for writers",
+      "Explore strategies for developing a consistent writing practice"
+    ],
+    color: "#F59E0B",
+    coverImage: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=300&h=400&fit=crop"
+  },
+  {
+    id: 9,
+    title: "Photography Basics",
+    description: "Capture stunning images with any camera",
+    category: "Arts",
+    isPaid: false,
+    content: "Learn composition, lighting, and editing basics.",
+    pages: 18,
+    details: [
+      "Understand the fundamentals of composition and visual storytelling",
+      "Learn about different types of lighting and how to use them",
+      "Discover basic camera settings and controls",
+      "Learn about exposure and how to achieve proper exposure",
+      "Understand different photography genres and styles",
+      "Learn basic photo editing techniques and software",
+      "Discover how to develop your unique photographic style",
+      "Understand the importance of practice and experimentation",
+      "Learn about equipment beyond the camera",
+      "Explore resources for continued learning in photography"
+    ],
+    color: "#EC4899",
+    coverImage: "https://images.unsplash.com/photo-1542038784456-1b840f857d5f?w=300&h=400&fit=crop"
+  },
+  {
+    id: 10,
+    title: "Sustainable Living",
+    description: "Reduce your environmental footprint",
+    category: "Environment",
+    isPaid: false,
+    content: "Learn practical ways to live more sustainably.",
+    pages: 14,
+    details: [
+      "Understand the principles of sustainability and environmental impact",
+      "Learn about reducing waste through zero-waste practices",
+      "Discover sustainable food choices and practices",
+      "Learn about energy conservation in the home",
+      "Understand sustainable transportation options",
+      "Learn about ethical consumerism and shopping habits",
+      "Discover how to grow your own food, even in small spaces",
+      "Understand water conservation techniques",
+      "Learn about sustainable fashion choices",
+      "Explore how to advocate for sustainability in your community"
+    ],
+    color: "#10B981",
+    coverImage: "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=300&h=400&fit=crop"
+  },
+  
+  // Paid Ebooks with KES pricing
+  {
+    id: 11,
+    title: "Advanced Digital Marketing Mastery",
+    description: "Complete guide to online marketing success",
+    category: "Marketing",
+    isPaid: true,
+    price: "KES 599",
+    content: "Comprehensive strategies for SEO, social media, content marketing, and paid advertising.",
+    pages: 120,
+    color: "#8B5CF6",
+    coverImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=300&h=400&fit=crop"
+  },
+  {
+    id: 12,
+    title: "Investment Portfolio Management",
+    description: "Build and manage a successful investment portfolio",
+    category: "Finance",
+    isPaid: true,
+    price: "KES 799",
+    content: "Learn advanced investment strategies and portfolio management techniques.",
+    pages: 95,
+    color: "#F59E0B",
+    coverImage: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=300&h=400&fit=crop"
+  },
+  {
+    id: 13,
+    title: "Full-Stack Web Development",
+    description: "Complete guide to modern web development",
+    category: "Technology",
+    isPaid: true,
+    price: "KES 999",
+    content: "Comprehensive course covering front-end and back-end development.",
+    pages: 150,
+    color: "#10B981",
+    coverImage: "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=300&h=400&fit=crop"
+  },
+  {
+    id: 14,
+    title: "Business Growth Strategies",
+    description: "Scale your business successfully",
+    category: "Business",
+    isPaid: true,
+    price: "KES 599",
+    content: "Proven strategies to grow your business and increase profitability.",
+    pages: 85,
+    color: "#3B82F6",
+    coverImage: "https://images.unsplash.com/photo-1552664730-d307ca884978?w=300&h=400&fit=crop"
+  },
+  {
+    id: 15,
+    title: "Advanced Productivity Systems",
+    description: "Master productivity and achieve your goals",
+    category: "Productivity",
+    isPaid: true,
+    price: "KES 399",
+    content: "Advanced techniques and systems for maximum productivity.",
+    pages: 75,
+    color: "#EF4444",
+    coverImage: "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=300&h=400&fit=crop"
+  },
+  {
+    id: 16,
+    title: "Nutrition Science and Meal Planning",
+    description: "Scientific approach to healthy eating",
+    category: "Health",
+    isPaid: true,
+    price: "KES 499",
+    content: "Comprehensive guide to nutrition science and personalized meal planning.",
+    pages: 90,
+    color: "#10B981",
+    coverImage: "https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=300&h=400&fit=crop"
+  },
+  {
+    id: 17,
+    title: "Mindfulness and Emotional Intelligence",
+    description: "Develop emotional awareness and resilience",
+    category: "Wellness",
+    isPaid: true,
+    price: "KES 399",
+    content: "Complete guide to mindfulness practices and emotional intelligence development.",
+    pages: 70,
+    color: "#8B5CF6",
+    coverImage: "https://images.unsplash.com/photo-1506126613408-cca07d5b417f?w=300&h=400&fit=crop"
+  },
+  {
+    id: 18,
+    title: "Fiction Writing Masterclass",
+    description: "Write and publish your novel",
+    category: "Writing",
+    isPaid: true,
+    price: "KES 599",
+    content: "Complete guide to writing, editing, and publishing fiction.",
+    pages: 110,
+    color: "#F59E0B",
+    coverImage: "https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=300&h=400&fit=crop"
+  },
+  {
+    id: 19,
+    title: "Professional Photography Techniques",
+    description: "Master the art of photography",
+    category: "Arts",
+    isPaid: true,
+    price: "KES 599",
+    content: "Advanced photography techniques and business skills for professionals.",
+    pages: 95,
+    color: "#EC4899",
+    coverImage: "https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?w=300&h=400&fit=crop"
+  },
+  {
+    id: 20,
+    title: "Environmental Science and Sustainability",
+    description: "Understanding environmental challenges",
+    category: "Environment",
+    isPaid: true,
+    price: "KES 499",
+    content: "Comprehensive guide to environmental science and sustainable practices.",
+    pages: 85,
+    color: "#10B981",
+    coverImage: "https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=300&h=400&fit=crop"
   }
 ];

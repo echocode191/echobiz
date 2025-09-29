@@ -97,18 +97,6 @@ const Header = () => {
     overflow: 'hidden'
   };
 
-  const linkBeforeStyle = {
-    content: '""',
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    width: '0',
-    height: '100%',
-    backgroundColor: 'rgba(255, 255, 255, 0.2)',
-    transition: 'width 0.3s ease',
-    zIndex: -1
-  };
-
   const buttonStyle = {
     backgroundColor: '#10B981',
     color: 'white',
@@ -267,11 +255,13 @@ const Header = () => {
                 gap: '0.5rem'
               }}>
                 {[
+                  { to: '/', text: 'Home' },
+                  { to: '/home', text: 'Original Home' },
                   { to: '/business-ideas', text: 'Business Ideas' },
                   { to: '/roadmaps', text: 'Roadmaps' },
                   { to: '/ebooks', text: 'eBooks' },
                   { to: '/storybooks', text: 'Storybooks' },
-                  { to: '/course-ideas', text: 'Course Ideas' },
+                  { to: '/course-ideas', text: 'Course Ideas' }, 
                   { to: '/about-contact', text: 'About' }
                 ].map((item, index) => (
                   <li key={index}>
@@ -346,6 +336,8 @@ const Header = () => {
           <nav style={navStyle} className="desktop-nav">
             <ul style={navLinksStyle}>
               {[
+                { to: '/', text: 'Home' },
+                { to: '/home', text: 'Original Home' },
                 { to: '/business-ideas', text: 'Business Ideas' },
                 { to: '/roadmaps', text: 'Roadmaps' },
                 { to: '/ebooks', text: 'eBooks' },
@@ -394,6 +386,21 @@ const Header = () => {
       
       {/* Mobile Menu */}
       <MobileMenu isOpen={isMenuOpen} />
+      
+      {/* Add keyframe animations */}
+      <style>
+        {`
+          @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+          }
+          
+          @keyframes slideIn {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+          }
+        `}
+      </style>
     </>
   );
 };

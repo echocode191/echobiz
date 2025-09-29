@@ -8,13 +8,19 @@ import EbooksPage from './pages/EbooksPage';
 import StorybooksPage from './pages/StorybooksPage';
 import CourseIdeasPage from './pages/CourseIdeasPage';
 import AboutContactPage from './pages/AboutContactPage';
+import Hero from './components/Hero';
 
 function App() {
   return (
     <Router>
       <Header />
       <Routes>
-        <Route path="/" element={<Home />} />
+        {/* ✅ Make Hero the default home page */}
+        <Route path="/" element={<Hero />} />
+        
+        {/* ✅ Move Home to its own route */}
+        <Route path="/home" element={<Home />} />
+        
         <Route path="/business-ideas" element={<BusinessIdeasPage />} />
         <Route path="/roadmaps" element={<RoadmapsPage />} />
         <Route path="/ebooks" element={<EbooksPage />} />
