@@ -1,364 +1,408 @@
-import { Link } from 'react-router-dom';
-import { useEffect, useState, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 
-const Hero = () => {
-  const [visible, setVisible] = useState(false);
-  const [counters, setCounters] = useState({
-    entrepreneurs: 0,
-    roadmaps: 0,
-    successRate: 0
-  });
-  const sectionRef = useRef(null);
+const Header = () => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+  const location = useLocation();
+  const menuRef = useRef(null);
 
-  // Animation on mount
+  // Handle scroll effect for navbar
   useEffect(() => {
-    const timer = setTimeout(() => setVisible(true), 100);
-    return () => clearTimeout(timer);
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 10);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  // Counter animation
+  // Close menu when clicking outside
   useEffect(() => {
-    if (!visible) return;
-    
-    const duration = 2000; // 2 seconds
-    const steps = 30;
-    const interval = duration / steps;
-    
-    const entrepreneursTarget = 10000;
-    const roadmapsTarget = 500;
-    const successRateTarget = 98;
-    
-    let step = 0;
-    const counterInterval = setInterval(() => {
-      step++;
-      const progress = step / steps;
-      
-      setCounters({
-        entrepreneurs: Math.floor(entrepreneursTarget * progress),
-        roadmaps: Math.floor(roadmapsTarget * progress),
-        successRate: Math.floor(successRateTarget * progress)
-      });
-      
-      if (step >= steps) {
-        clearInterval(counterInterval);
-        setCounters({
-          entrepreneurs: entrepreneursTarget,
-          roadmaps: roadmapsTarget,
-          successRate: successRateTarget
-        });
+    const handleClickOutside = (event) => {
+      if (menuRef.current && !menuRef.current.contains(event.target) && isMenuOpen) {
+        setIsMenuOpen(false);
       }
-    }, interval);
-    
-    return () => clearInterval(counterInterval);
-  }, [visible]);
+    };
 
-  // Floating animation for elements
-  const FloatingElement = ({ children, delay = 0, duration = 3 }) => (
-    <div 
-      style={{
-        animation: `float ${duration}s ease-in-out infinite`,
-        animationDelay: `${delay}s`,
-        display: 'inline-block'
-      }}
-    >
-      {children}
-    </div>
-  );
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, [isMenuOpen]);
 
-  // Particle background
-  const Particles = () => {
-    const particles = Array.from({ length: 20 });
-    
-    return (
-      <div style={{
-        position: 'absolute',
-        top: 0,
-        left: 0,
-        width: '100%',
-        height: '100%',
-        overflow: 'hidden',
-        zIndex: 0
-      }}>
-        {particles.map((_, i) => (
-          <div
-            key={i}
-            style={{
-              position: 'absolute',
-              width: `${Math.random() * 10 + 2}px`,
-              height: `${Math.random() * 10 + 2}px`,
-              backgroundColor: 'rgba(255, 255, 255, 0.5)',
-              borderRadius: '50%',
-              top: `${Math.random() * 100}%`,
-              left: `${Math.random() * 100}%`,
-              animation: `float ${Math.random() * 10 + 10}s ease-in-out infinite`,
-              animationDelay: `${Math.random() * 5}s`,
-              opacity: Math.random() * 0.5 + 0.2
-            }}
-          />
-        ))}
-      </div>
-    );
-  };
+  // Prevent body scroll when menu is open on mobile
+  useEffect(() => {
+    if (isMenuOpen && window.innerWidth <= 768) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+  }, [isMenuOpen]);
 
-  const heroStyle = {
-    padding: '8rem 2rem 6rem',
-    textAlign: 'center',
+  // Navigation items
+  const navItems = [
+    { to: '/', text: 'Home' },
+    { to: '/home', text: 'Original Home' },
+    { to: '/business-ideas', text: 'Business Ideas' },
+    { to: '/roadmaps', text: 'Roadmaps' },
+    { to: '/ebooks', text: 'eBooks' },
+    { to: '/storybooks', text: 'Storybooks' },
+    { to: '/course-ideas', text: 'Course Ideas' },
+    { to: '/about-contact', text: 'About' }
+  ];
+
+  const headerStyle = {
+    backgroundColor: isScrolled ? 'rgba(79, 70, 229, 0.95)' : '#4F46E5',
+    backdropFilter: isScrolled ? 'blur(10px)' : 'none',
     color: 'white',
-    position: 'relative',
-    overflow: 'hidden',
-    background: 'linear-gradient(135deg, #667eea 0%, #764ba2 25%, #5b73e8 50%, #4e54c8 75%, #667eea 100%)',
-    backgroundSize: '400% 400%',
-    animation: 'gradientShift 15s ease infinite'
+    position: 'sticky',
+    top: 0,
+    zIndex: 1000,
+    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+    boxShadow: isScrolled ? '0 4px 20px rgba(0, 0, 0, 0.1)' : 'none'
   };
 
   const containerStyle = {
     maxWidth: '1200px',
     margin: '0 auto',
-    position: 'relative',
-    zIndex: 1,
-    opacity: visible ? 1 : 0,
-    transform: visible ? 'translateY(0)' : 'translateY(30px)',
-    transition: 'opacity 1.2s ease, transform 1.2s ease'
-  };
-
-  const headingStyle = {
-    fontSize: 'clamp(2.5rem, 8vw, 4rem)',
-    fontWeight: '800',
-    marginBottom: '1.5rem',
-    lineHeight: '1.2',
-    letterSpacing: '-0.5px',
-    textShadow: '0 2px 10px rgba(0,0,0,0.2)'
-  };
-
-  const subheadingStyle = {
-    fontSize: 'clamp(1.1rem, 3vw, 1.4rem)',
-    marginBottom: '3rem',
-    opacity: 0.95,
-    lineHeight: '1.6',
-    maxWidth: '800px',
-    margin: '0 auto 3rem'
-  };
-
-  const buttonContainerStyle = {
+    padding: '1rem 2rem',
     display: 'flex',
-    justifyContent: 'center',
-    gap: '1.5rem',
-    flexWrap: 'wrap',
-    marginBottom: '4rem'
+    justifyContent: 'space-between',
+    alignItems: 'center'
   };
 
-  const primaryButtonStyle = {
+  const logoStyle = {
+    fontSize: '1.5rem',
+    fontWeight: 'bold',
+    display: 'flex',
+    alignItems: 'center',
+    textDecoration: 'none',
+    color: 'white',
+    transition: 'transform 0.3s ease'
+  };
+
+  const navStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    gap: '1rem'
+  };
+
+  const navLinksStyle = {
+    display: 'flex',
+    alignItems: 'center',
+    listStyle: 'none',
+    margin: 0,
+    padding: 0,
+    gap: '0.25rem'
+  };
+
+  const linkStyle = (isActive) => ({
+    color: 'white',
+    textDecoration: 'none',
+    fontWeight: '500',
+    padding: '0.75rem 1rem',
+    borderRadius: '0.5rem',
+    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+    backgroundColor: isActive ? 'rgba(255, 255, 255, 0.2)' : 'transparent'
+  });
+
+  const buttonStyle = {
     backgroundColor: '#10B981',
     color: 'white',
     border: 'none',
-    padding: '1rem 2.5rem',
-    borderRadius: '0.6rem',
-    fontSize: '1.2rem',
+    padding: '0.75rem 1.5rem',
+    borderRadius: '0.5rem',
     fontWeight: '600',
     cursor: 'pointer',
-    boxShadow: '0 10px 25px rgba(16,185,129,0.4)',
-    transition: 'transform 0.3s, box-shadow 0.3s',
-    outline: 'none',
-    position: 'relative',
-    overflow: 'hidden',
-    zIndex: 1
+    transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+    textDecoration: 'none',
+    display: 'inline-block',
+    boxShadow: '0 4px 6px rgba(16, 185, 129, 0.3)'
   };
 
-  const secondaryButtonStyle = {
-    backgroundColor: 'transparent',
-    color: 'white',
-    border: '2px solid white',
-    padding: '1rem 2.5rem',
-    borderRadius: '0.6rem',
-    fontSize: '1.2rem',
-    fontWeight: '600',
-    cursor: 'pointer',
-    transition: 'all 0.3s',
-    outline: 'none',
-    position: 'relative',
-    zIndex: 1
-  };
+  // Modern Hamburger Toggler
+  const TogglerButton = ({ isOpen, onClick }) => (
+    <button
+      onClick={onClick}
+      aria-label={isOpen ? "Close menu" : "Open menu"}
+      aria-expanded={isOpen}
+      style={{
+        background: 'none',
+        border: 'none',
+        cursor: 'pointer',
+        padding: '0.5rem',
+        display: 'flex',
+        flexDirection: 'column',
+        justifyContent: 'center',
+        alignItems: 'center',
+        width: '2.5rem',
+        height: '2.5rem',
+        borderRadius: '0.5rem',
+        transition: 'all 0.3s ease'
+      }}
+      className="nav-toggler"
+    >
+      <span
+        style={{
+          display: 'block',
+          width: '1.5rem',
+          height: '0.125rem',
+          backgroundColor: 'white',
+          borderRadius: '0.125rem',
+          transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+          transform: isOpen ? 'rotate(45deg) translate(0.375rem, 0.375rem)' : 'none',
+          marginBottom: isOpen ? '0' : '0.25rem'
+        }}
+      />
+      <span
+        style={{
+          display: 'block',
+          width: '1.5rem',
+          height: '0.125rem',
+          backgroundColor: 'white',
+          borderRadius: '0.125rem',
+          transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+          opacity: isOpen ? 0 : 1,
+          transform: isOpen ? 'translateX(-1rem)' : 'none'
+        }}
+      />
+      <span
+        style={{
+          display: 'block',
+          width: '1.5rem',
+          height: '0.125rem',
+          backgroundColor: 'white',
+          borderRadius: '0.125rem',
+          transition: 'all 0.3s cubic-bezier(0.4, 0, 0.2, 1)',
+          transform: isOpen ? 'rotate(-45deg) translate(0.375rem, -0.375rem)' : 'none',
+          marginTop: isOpen ? '0' : '0.25rem'
+        }}
+      />
+    </button>
+  );
 
-  const statsContainerStyle = {
-    display: 'flex',
-    justifyContent: 'center',
-    gap: '3rem',
-    flexWrap: 'wrap',
-    marginTop: '3rem',
-    paddingTop: '3rem',
-    borderTop: '1px solid rgba(255,255,255,0.2)'
-  };
+  // Mobile Menu Overlay
+  const MobileMenu = ({ isOpen }) => {
+    if (!isOpen) return null;
 
-  const statItemStyle = {
-    textAlign: 'center',
-    minWidth: '150px'
-  };
-
-  const statNumberStyle = {
-    fontSize: 'clamp(2rem, 5vw, 3rem)',
-    fontWeight: '800',
-    marginBottom: '0.5rem',
-    color: '#fcd34d'
-  };
-
-  const statLabelStyle = {
-    fontSize: '1.1rem',
-    opacity: 0.9
-  };
-
-  const testimonialStyle = {
-    maxWidth: '700px',
-    margin: '4rem auto 0',
-    padding: '1.5rem',
-    backgroundColor: 'rgba(255,255,255,0.1)',
-    borderRadius: '1rem',
-    backdropFilter: 'blur(10px)',
-    border: '1px solid rgba(255,255,255,0.2)',
-    fontStyle: 'italic',
-    position: 'relative'
-  };
-
-  const testimonialQuoteStyle = {
-    position: 'absolute',
-    top: '-20px',
-    left: '20px',
-    fontSize: '3rem',
-    opacity: 0.3
-  };
-
-  const testimonialAuthorStyle = {
-    marginTop: '1rem',
-    fontWeight: '600',
-    textAlign: 'right'
-  };
-
-  // Button hover effects
-  const hoverInPrimary = e => {
-    e.currentTarget.style.transform = 'translateY(-5px)';
-    e.currentTarget.style.boxShadow = '0 15px 30px rgba(16,185,129,0.5)';
-  };
-  
-  const hoverOutPrimary = e => {
-    e.currentTarget.style.transform = 'translateY(0)';
-    e.currentTarget.style.boxShadow = '0 10px 25px rgba(16,185,129,0.4)';
-  };
-
-  const hoverInSecondary = e => {
-    e.currentTarget.style.backgroundColor = 'rgba(255,255,255,0.2)';
-    e.currentTarget.style.transform = 'translateY(-5px)';
-  };
-  
-  const hoverOutSecondary = e => {
-    e.currentTarget.style.backgroundColor = 'transparent';
-    e.currentTarget.style.transform = 'translateY(0)';
-  };
-
-  return (
-    <div style={heroStyle} ref={sectionRef}>
-      {/* Keyframe animations */}
-      <style>
-        {`
-          @keyframes gradientShift {
-            0% {background-position:0% 50%;}
-            50% {background-position:100% 50%;}
-            100% {background-position:0% 50%;}
-          }
-          
-          @keyframes float {
-            0% {transform: translateY(0px) rotate(0deg);}
-            50% {transform: translateY(-20px) rotate(5deg);}
-            100% {transform: translateY(0px) rotate(0deg);}
-          }
-          
-          @keyframes pulse {
-            0% {box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.7);}
-            70% {box-shadow: 0 0 0 15px rgba(16, 185, 129, 0);}
-            100% {box-shadow: 0 0 0 0 rgba(16, 185, 129, 0);}
-          }
-          
-          .pulse-button {
-            animation: pulse 2s infinite;
-          }
-        `}
-      </style>
-
-      {/* Particle background */}
-      <Particles />
-
-      <div style={containerStyle}>
-        {/* Floating icon */}
-        <div style={{
-          position: 'absolute',
-          top: '10%',
-          right: '5%',
-          fontSize: '3rem',
-          opacity: 0.7,
-          transform: 'rotate(15deg)'
-        }}>
-          <FloatingElement duration={4}>🚀</FloatingElement>
-        </div>
-
-        <h1 style={headingStyle}>
-          Transform Your Business <span style={{ color: '#fcd34d' }}>Ideas into Reality</span>
-        </h1>
-        
-        <p style={subheadingStyle}>
-          Join thousands of successful entrepreneurs who have launched and scaled their businesses 
-          with our premium resources, expert roadmaps, and actionable strategies.
-        </p>
-
-        <div style={buttonContainerStyle}>
-          <Link to="/business-ideas">
-            <button
-              style={{...primaryButtonStyle, animation: 'pulse 2s infinite'}}
-              className="pulse-button"
-              onMouseEnter={hoverInPrimary}
-              onMouseLeave={hoverOutPrimary}
-            >
-              Explore Business Ideas
-            </button>
-          </Link>
-          <Link to="/roadmaps">
-            <button
-              style={secondaryButtonStyle}
-              onMouseEnter={hoverInSecondary}
-              onMouseLeave={hoverOutSecondary}
-            >
-              View Pro Roadmaps
-            </button>
-          </Link>
-        </div>
-
-        {/* Stats section */}
-        <div style={statsContainerStyle}>
-          <div style={statItemStyle}>
-            <div style={statNumberStyle}>{counters.entrepreneurs}+</div>
-            <div style={statLabelStyle}>Happy Entrepreneurs</div>
-          </div>
-          <div style={statItemStyle}>
-            <div style={statNumberStyle}>{counters.roadmaps}+</div>
-            <div style={statLabelStyle}>Business Roadmaps</div>
-          </div>
-          <div style={statItemStyle}>
-            <div style={statNumberStyle}>{counters.successRate}%</div>
-            <div style={statLabelStyle}>Success Rate</div>
-          </div>
-        </div>
-
-        {/* Testimonial */}
-        <div style={testimonialStyle}>
-          <div style={testimonialQuoteStyle}>"</div>
-          <p>
-            This platform completely transformed my business trajectory. The roadmaps are invaluable and 
-            the resources helped me scale from a side hustle to a six-figure business in under a year!
-          </p>
-          <div style={testimonialAuthorStyle}>
-            — Sarah T., Founder of TechStart
+    return (
+      <div
+        style={{
+          position: 'fixed',
+          top: '0',
+          left: '0',
+          right: '0',
+          bottom: '0',
+          backgroundColor: 'rgba(0, 0, 0, 0.5)',
+          backdropFilter: 'blur(4px)',
+          zIndex: 999,
+          animation: 'fadeIn 0.3s ease'
+        }}
+        onClick={() => setIsMenuOpen(false)}
+      >
+        <div
+          style={{
+            position: 'absolute',
+            top: '0',
+            right: '0',
+            width: '80%',
+            maxWidth: '300px',
+            height: '100%',
+            backgroundColor: '#4F46E5',
+            boxShadow: '-4px 0 20px rgba(0, 0, 0, 0.1)',
+            animation: 'slideIn 0.3s cubic-bezier(0.4, 0, 0.2, 1)'
+          }}
+          onClick={(e) => e.stopPropagation()}
+        >
+          <div style={{ padding: '2rem' }}>
+            <div style={{ 
+              display: 'flex', 
+              justifyContent: 'space-between', 
+              alignItems: 'center', 
+              marginBottom: '2rem' 
+            }}>
+              <Link 
+                to="/" 
+                style={{ 
+                  fontSize: '1.5rem', 
+                  fontWeight: 'bold', 
+                  color: 'white',
+                  textDecoration: 'none' 
+                }}
+                onClick={() => setIsMenuOpen(false)}
+              >
+                🌍 Master App
+              </Link>
+              <button
+                onClick={() => setIsMenuOpen(false)}
+                aria-label="Close menu"
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  color: 'white',
+                  fontSize: '1.5rem',
+                  cursor: 'pointer',
+                  padding: '0.5rem',
+                  borderRadius: '0.5rem',
+                  transition: 'all 0.3s ease'
+                }}
+              >
+                ✕
+              </button>
+            </div>
+            
+            <nav>
+              <ul style={{ 
+                listStyle: 'none', 
+                margin: 0, 
+                padding: 0,
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '0.5rem'
+              }}>
+                {navItems.map((item, index) => (
+                  <li key={index}>
+                    <Link
+                      to={item.to}
+                      style={{
+                        ...linkStyle(location.pathname === item.to),
+                        color: 'white',
+                        textDecoration: 'none',
+                        fontWeight: '500',
+                        padding: '1rem',
+                        borderRadius: '0.5rem',
+                        display: 'block',
+                        transition: 'all 0.3s ease',
+                        transform: 'translateX(0)'
+                      }}
+                      onClick={() => setIsMenuOpen(false)}
+                      onMouseEnter={(e) => {
+                        if (location.pathname !== item.to) {
+                          e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                          e.target.style.transform = 'translateX(0.5rem)';
+                        }
+                      }}
+                      onMouseLeave={(e) => {
+                        if (location.pathname !== item.to) {
+                          e.target.style.backgroundColor = location.pathname === item.to ? 'rgba(255, 255, 255, 0.2)' : 'transparent';
+                          e.target.style.transform = 'translateX(0)';
+                        }
+                      }}
+                    >
+                      {item.text}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+              
+              <div style={{ 
+                marginTop: '2rem', 
+                paddingTop: '2rem', 
+                borderTop: '1px solid rgba(255, 255, 255, 0.2)' 
+              }}>
+                <Link
+                  to="/roadmaps"
+                  style={{
+                    ...buttonStyle,
+                    display: 'block',
+                    textAlign: 'center',
+                    width: '100%'
+                  }}
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Best Seller
+                </Link>
+              </div>
+            </nav>
           </div>
         </div>
       </div>
-    </div>
+    );
+  };
+
+  return (
+    <>
+      <header style={headerStyle}>
+        <div style={containerStyle}>
+          <Link 
+            to="/" 
+            style={logoStyle}
+            onMouseEnter={(e) => e.target.style.transform = 'scale(1.05)'}
+            onMouseLeave={(e) => e.target.style.transform = 'scale(1)'}
+          >
+            <span style={{ marginRight: '0.5rem' }}>🌍</span>
+            Master App
+          </Link>
+          
+          {/* Desktop Navigation */}
+          <nav style={navStyle} className="desktop-nav">
+            <ul style={navLinksStyle}>
+              {navItems.map((item, index) => (
+                <li key={index}>
+                  <Link
+                    to={item.to}
+                    style={linkStyle(location.pathname === item.to)}
+                    onMouseEnter={(e) => {
+                      if (location.pathname !== item.to) {
+                        e.target.style.backgroundColor = 'rgba(255, 255, 255, 0.1)';
+                      }
+                    }}
+                    onMouseLeave={(e) => {
+                      if (location.pathname !== item.to) {
+                        e.target.style.backgroundColor = 'transparent';
+                      }
+                    }}
+                  >
+                    {item.text}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            
+            <Link 
+              to="/roadmaps" 
+              style={buttonStyle}
+              onMouseEnter={(e) => {
+                e.target.style.backgroundColor = '#059669';
+                e.target.style.transform = 'translateY(-2px)';
+                e.target.style.boxShadow = '0 6px 12px rgba(16, 185, 129, 0.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.target.style.backgroundColor = '#10B981';
+                e.target.style.transform = 'translateY(0)';
+                e.target.style.boxShadow = '0 4px 6px rgba(16, 185, 129, 0.3)';
+              }}
+            >
+              Best Seller
+            </Link>
+            
+            {/* Mobile Toggler */}
+            <TogglerButton 
+              isOpen={isMenuOpen} 
+              onClick={() => setIsMenuOpen(!isMenuOpen)} 
+            />
+          </nav>
+        </div>
+      </header>
+      
+      {/* Mobile Menu */}
+      <MobileMenu isOpen={isMenuOpen} />
+      
+      {/* Add keyframe animations */}
+      <style>
+        {`
+          @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+          }
+          
+          @keyframes slideIn {
+            from { transform: translateX(100%); }
+            to { transform: translateX(0); }
+          }
+        `}
+      </style>
+    </>
   );
 };
 
-export default Hero;
+export default Header;
